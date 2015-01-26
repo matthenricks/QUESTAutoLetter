@@ -38,7 +38,7 @@
 			var dateSelect = $('<li><a tabindex="1">' + value + '</a></li>');
 			list.append(dateSelect);
 			dateSelect.click(function(){
-				$(this).parent().parent().find('span').html(value);
+				picker.find('span').html(value);
 			});			
 		});		
 		// Append the new elements to the container
