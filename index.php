@@ -24,27 +24,25 @@
 	<!-- This section is dedicated to adding the javascript dynamically -->
 	<script>
 	
-	function setText(id, str) {
-		$("#" + id).innerHTML = str;
-	};
-	
-	var dSelector = 1;
 	function createDateSelector(container) {
-		var show = $("<div type = \"dateSelector\" id=\"dS" + dSelector + "\"  class=\"label label-default\">" + CurrentMonth() + "</div>");
-		var picker = $("<div class=\"dropdown\"></div>");
-		picker.append("<a href=\"#\" role=\"button\" class=\"dropdown-toggle btn btn-primary btn-sm\" data-toggle=\"dropdown\">Select Date <b class=\"caret\"></b></a>");
-		var list = $("<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu\"></ul>");
 		
-		list.append("<li><a tabindex=\"1\" onclick=\"setText(\"dS" + dSelector + "\", \"January\");\">January</a></li>");
-		list.append("<li><a tabindex=\"1\" onclick=\"setText(\"dS" + dSelector + "\", \"February\");\">February</a></li>");
+		var picker = $('<div class="dropdown"></div>');
+		picker.append('<a href="#" role="button" class="dropdown-toggle btn btn-primary btn-sm" data-toggle="dropdown"><span>' + CurrentMonth() + ' </span><b class="caret"></b></a>');
 		
+		var list = $('<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu"></ul>');
 		picker.append(list);
-		// Append the dateSelector ID's of future calls
-		dSelector++;
-		
+
+		// Add each month
+		// Month is defined in the AuxillaryFunctions file
+		$.each(month, function( index, value ) {
+			var dateSelect = $('<li><a tabindex="1">' + value + '</a></li>');
+			list.append(dateSelect);
+			dateSelect.click(function(){
+				$(this).parent().parent().find('span').html(value);
+			});			
+		});		
 		// Append the new elements to the container
 		container.append(picker);
-		container.append(show);
 	};
 	
 	
