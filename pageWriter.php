@@ -10,6 +10,9 @@ else {
 
 // Instead of making it this way, make it a page first and just have it called and wrote
 
+// type -> thing
+// read -> attributes within
+
 
 /**
 $filename = 'test.html';

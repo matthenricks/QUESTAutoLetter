@@ -25,3 +25,8 @@ function MonthToString(dateInt) {
 function unimplemented() {
 	alert('Functionality is not implemented yet');
 }
+
+function makeTextbox(placeholder, reference) {
+	var input = $('<input read="' + reference + '" class="form-control" type="textbox" placeholder="' + placeholder + '" />');
+	return input;
+}
