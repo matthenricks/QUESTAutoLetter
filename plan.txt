@@ -1,0 +1,3 @@
+1) Create javascript-based auto-generator
+2) Have the javascript output an HTML file
+3) Potentially pull it into PHP, since it can dynamically do it
